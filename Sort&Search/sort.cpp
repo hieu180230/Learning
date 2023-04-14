@@ -57,7 +57,7 @@ void selectionSort(int* a, int n)
 		swap(a[i], a[minindex]);
 	}
 }
-void quickSort(int* a, int n)
+void insertionSort(int* a, int n)
 {
 	for (int i = 1; i < n; i++)
 	{
@@ -68,4 +68,8 @@ void quickSort(int* a, int n)
 			j--;
 		}
 	}
+}
+void quicksort(int* a, int n)
+{
+	
 }
