@@ -1,0 +1,9 @@
+#pragma once
+#include <iostream>
+using namespace std;
+
+void swap(int& i, int& j);
+void bubbleSort(int* a, int n);
+void cocktailSort(int* a, int n);
+void selectionSort(int* a, int n);
+void quickSort(int* a, int n);
