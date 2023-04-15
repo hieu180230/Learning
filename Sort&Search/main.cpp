@@ -9,7 +9,7 @@ int main()
 	{
 		cin >> a[i];
 	}
-	cocktailSort(a, n);
+	quickSort(a, 0, n);
 	for (int i = 0; i < n; i++)
 	{
 		cout << a[i] << " ";
