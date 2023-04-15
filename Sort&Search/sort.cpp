@@ -71,9 +71,9 @@ void insertionSort(int* a, int n)
 }
 int partition(int* a, int low, int high)
 {
-	int pivot = a[low];
+	int pivot = a[low]; // the pivot at the begin
 	int i = low, j = high;
-	while (i < j)
+	while (i < j)//i--> <--j
 	{
 		do
 		{
@@ -83,20 +83,21 @@ int partition(int* a, int low, int high)
 		{
 			j--;
 		} while (a[j] > pivot);
+		//move i, j then compare
 		if (i < j)
 		{
 			swap(a[i], a[j]);
-		}
+		}//move greater to the left and smaller to the right of the pivot
 	}
-	swap(a[low], a[j]);
-	return j;
+	swap(a[low], a[j]);//move pivot to the right position
+	return j;//return the position of the pivot
 }
 void quickSort(int* a, int low, int high)
 {
 	if (low < high)
 	{
-		int j = partition(a, low, high);
-		quickSort(a, low, j);
-		quickSort(a, j + 1,high);
+		int j = partition(a, low, high);//get the right position of the first element and move greater to the left and smaller to the right of the pivot
+		quickSort(a, low, j);//sort the array at the left of the pivot
+		quickSort(a, j + 1,high);//sort the array at the right of the pivot
 	}
 }
