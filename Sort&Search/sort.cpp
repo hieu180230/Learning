@@ -104,7 +104,7 @@ void quickSort(int* a, int low, int high)
 void merge(int* a, int low, int mid, int high)
 {
 	int n = mid - low + 1, m = high - mid;
-	int i = 0, j = 0, k = 0;
+	int i = 0, j = 0, k = low;
 	int* b = new int[n];
 	int* c = new int[m];
 	for (int x = 0; x < n; x++)
@@ -134,12 +134,14 @@ void merge(int* a, int low, int mid, int high)
 	{
 		a[k++] = c[j];
 	}
+	delete[] b;
+	delete[] c;
 }
 void mergeSort(int* a, int low, int high)
 {
 	if (low < high)
 	{
-		int mid = (low + high) / 2;
+		int mid = low + (high - low) / 2;
 		mergeSort(a, low, mid);
 		mergeSort(a, mid + 1, high);
 		merge(a, low, mid, high);
