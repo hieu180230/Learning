@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.33516.290
+VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sort&Search", "Sort&Search\Sort&Search.vcxproj", "{D95B3DBB-C375-48C0-B9EF-57FEEF6DA7A5}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkedList", "LinkedList\LinkedList.vcxproj", "{5E4B2503-AC17-4D06-AAC5-4CE19112A246}"
 EndProject
 Global
@@ -15,14 +13,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D95B3DBB-C375-48C0-B9EF-57FEEF6DA7A5}.Debug|x64.ActiveCfg = Debug|x64
-		{D95B3DBB-C375-48C0-B9EF-57FEEF6DA7A5}.Debug|x64.Build.0 = Debug|x64
-		{D95B3DBB-C375-48C0-B9EF-57FEEF6DA7A5}.Debug|x86.ActiveCfg = Debug|Win32
-		{D95B3DBB-C375-48C0-B9EF-57FEEF6DA7A5}.Debug|x86.Build.0 = Debug|Win32
-		{D95B3DBB-C375-48C0-B9EF-57FEEF6DA7A5}.Release|x64.ActiveCfg = Release|x64
-		{D95B3DBB-C375-48C0-B9EF-57FEEF6DA7A5}.Release|x64.Build.0 = Release|x64
-		{D95B3DBB-C375-48C0-B9EF-57FEEF6DA7A5}.Release|x86.ActiveCfg = Release|Win32
-		{D95B3DBB-C375-48C0-B9EF-57FEEF6DA7A5}.Release|x86.Build.0 = Release|Win32
 		{5E4B2503-AC17-4D06-AAC5-4CE19112A246}.Debug|x64.ActiveCfg = Debug|x64
 		{5E4B2503-AC17-4D06-AAC5-4CE19112A246}.Debug|x64.Build.0 = Debug|x64
 		{5E4B2503-AC17-4D06-AAC5-4CE19112A246}.Debug|x86.ActiveCfg = Debug|Win32
@@ -36,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AEDB77A9-F295-4187-A330-DFF8DEDB50AC}
+		SolutionGuid = {92CD4C9A-2BBB-48D2-95C3-427EF3E7840F}
 	EndGlobalSection
 EndGlobal
