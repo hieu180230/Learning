@@ -28,11 +28,14 @@ using namespace std;
 int main()
 {
 	FILE* input;
-	string text1, text2;
+	char text1[10], text2[10];
 	int num1 = 0;
 	int num2 = 0;
 	input = fopen("test.txt", "r");
-	fscanf(input, "%s %s %d_%d", &text1, &text2, &num1, &num2);
-	printf("%s %s %d %d", text1, text2, num1, num2);
+	while (!feof(input))
+	{
+		fscanf(input,"%s %s %d_%d\n", &text1, &text2, &num1, &num2);
+		printf("%s %s %d %d\n", text1, text2, num1, num2);
+	}
 	fclose(input);
 }
