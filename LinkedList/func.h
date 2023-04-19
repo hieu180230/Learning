@@ -25,3 +25,4 @@ void removeAll(List& list);
 void removeBefore(List& list, Data toRemove);
 int listLength(List list);
 void listInsert(List& list, Data input, int pos);
+void listRemove(List& list, int pos);

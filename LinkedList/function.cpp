@@ -197,6 +197,32 @@ void listInsert(List& list, Data input, int pos)
 	return;
 }
 
+void listRemove(List& list, int pos)
+{
+	if (listEmpty(list) || pos >= listLength(list))
+	{
+		return;
+	}
+	if (pos == 0)
+	{
+		Node* pCurrent = list.pHead->pNext;
+		delete list.pHead;
+		list.pHead = pCurrent;
+		return;
+	}
+	Node* pCurrent = list.pHead;
+	int n = 0;
+	while (n != pos - 1)
+	{
+		pCurrent = pCurrent->pNext;
+		n++;
+	}
+	Node* pTemp = pCurrent->pNext->pNext;
+	delete pCurrent->pNext;
+	pCurrent->pNext = pTemp;
+	return;
+}
+
 int listOutput(List list)
 {
 	if (listEmpty(list))
