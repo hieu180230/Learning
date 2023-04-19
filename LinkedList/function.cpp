@@ -158,7 +158,7 @@ int listLength(List list)
 		return 0;
 	}
 	Node* pCurrent = list.pHead;
-	int n = 0;
+	int n = 1;
 	while (pCurrent->pNext != NULL)
 	{
 		pCurrent = pCurrent->pNext;
@@ -169,7 +169,58 @@ int listLength(List list)
 
 void listInsert(List& list, Data input, int pos)
 {
+	if (listEmpty(list) || pos > listLength(list))
+	{
+		return;
+	}
+	if (pos == 0)
+	{
+		Node* pCurrent = createNode(input);
+		pCurrent->pNext = list.pHead;
+		list.pHead = pCurrent;
+		return;
+	}
+	if (pos == listLength(list))
+	{
+		listAppend(list, input);
+	}
+	int n = 0;
+	Node* pCurrent = list.pHead;
+	while (n != pos - 1)
+	{
+		pCurrent = pCurrent->pNext;
+		n++;
+	}
+	Node* pTemp = pCurrent->pNext;
+	pCurrent->pNext = createNode(input);
+	pCurrent->pNext->pNext = pTemp;
+	return;
+}
 
+void listRemove(List& list, int pos)
+{
+	if (listEmpty(list) || pos >= listLength(list))
+	{
+		return;
+	}
+	if (pos == 0)
+	{
+		Node* pCurrent = list.pHead->pNext;
+		delete list.pHead;
+		list.pHead = pCurrent;
+		return;
+	}
+	Node* pCurrent = list.pHead;
+	int n = 0;
+	while (n != pos - 1)
+	{
+		pCurrent = pCurrent->pNext;
+		n++;
+	}
+	Node* pTemp = pCurrent->pNext->pNext;
+	delete pCurrent->pNext;
+	pCurrent->pNext = pTemp;
+	return;
 }
 
 int listOutput(List list)
