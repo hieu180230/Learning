@@ -151,6 +151,27 @@ int listAppend(List &list, Data input)
 	return 1;
 }
 
+int listLength(List list)
+{
+	if (listEmpty(list))
+	{
+		return 0;
+	}
+	Node* pCurrent = list.pHead;
+	int n = 0;
+	while (pCurrent->pNext != NULL)
+	{
+		pCurrent = pCurrent->pNext;
+		n++;
+	}
+	return n;
+}
+
+void listInsert(List& list, Data input, int pos)
+{
+
+}
+
 int listOutput(List list)
 {
 	if (listEmpty(list))
