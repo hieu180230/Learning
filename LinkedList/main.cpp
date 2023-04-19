@@ -34,7 +34,7 @@ int main()
 	input = fopen("test.txt", "r");
 	while (!feof(input))
 	{
-		fscanf(input,"%s %s %d_%d\n", &text1, &text2, &num1, &num2);
+		fscanf(input,"%s %s %d_%d\n", text1, text2, &num1, &num2);
 		printf("%s %s %d %d\n", text1, text2, num1, num2);
 	}
 	fclose(input);
