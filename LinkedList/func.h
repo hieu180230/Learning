@@ -23,3 +23,5 @@ void addTail(List& list, Data input);
 void removeTail(List& list);
 void removeAll(List& list);
 void removeBefore(List& list, Data toRemove);
+int listLength(List list);
+void listInsert(List& list, Data input, int pos);

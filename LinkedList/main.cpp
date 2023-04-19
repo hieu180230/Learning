@@ -17,6 +17,8 @@ int main()
 		n = n - 1;
 	}
 	listOutput(list);
-	removeBefore(list, toDelete);
+	cout << endl << listLength(list) << endl;
+	listInsert(list, toDelete, 3);
 	listOutput(list);
+	cout << endl << listLength(list);
 }
