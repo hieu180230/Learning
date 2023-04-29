@@ -6,7 +6,7 @@ using namespace std;
 bool listEmpty(List list)
 {
 	if (list.pHead == NULL) return true;
-	else return false;
+	return false;
 }
 
 Node* createNode(Data input)
@@ -238,4 +238,5 @@ int listOutput(List list)
 	}
 	return 1;
 }
+
 

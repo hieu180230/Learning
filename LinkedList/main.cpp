@@ -5,11 +5,10 @@
 using namespace std;
 int main()
 {
-	int n = 4;
+	int n = 0;
+	cin >> n;
 	List list;
-	Data data, toDelete;
-	toDelete.name = "huhu";
-	toDelete.age = 3;
+	Data data;
 	listOutput(list);
 	while (n > 0)
 	{
@@ -20,7 +19,6 @@ int main()
 	}
 	listOutput(list);
 	cout << endl << listLength(list) << endl;
-	listInsert(list, toDelete, 3);
 	listOutput(list);
-	cout << endl << listLength(list);
+	cout << endl << listLength(list) << endl << Count(list);
 }
