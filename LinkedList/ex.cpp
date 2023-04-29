@@ -19,4 +19,15 @@ int Count(List list)
 		pPrev = pPrev->pNext;
 	}
 	return count;
+} 
+
+bool checkIncrease(List list, Node* pCur)
+{
+	if (listEmpty(list) == true) return false;
+	if (pCur->pNext == NULL) return true;
+	if (pCur->data.age >= pCur->pNext->data.age)
+	{
+		return false;
+	}
+	return checkIncrease(list, pCur->pNext);
 }

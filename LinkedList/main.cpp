@@ -18,7 +18,5 @@ int main()
 		n = n - 1;
 	}
 	listOutput(list);
-	cout << endl << listLength(list) << endl;
-	listOutput(list);
-	cout << endl << listLength(list) << endl << Count(list);
+	cout << endl << listLength(list) << endl << checkIncrease(list, list.pHead);
 }
