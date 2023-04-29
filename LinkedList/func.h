@@ -15,7 +15,11 @@ struct List {
 	Node* pHead=NULL;
 	Node* pTail=NULL;
 };
-
+//for exercises
+int Count(List list);
+bool checkIncrease(List list, Node* pCur);
+//functions
+bool listEmpty(List list);
 int listAppend(List &list, Data input);
 int listOutput(List list);
 void addHead(List& list, Data input);
