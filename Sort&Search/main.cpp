@@ -2,17 +2,12 @@
 
 int main()
 {
-	int n;
-	cin >> n;
-	int* a = new int[n];
-	for (int i = 0; i < n; i++)
-	{
-		cin >> a[i];
-	}
-	mergeSort(a, 0, n - 1);
-	for (int i = 0; i < n; i++)
-	{
-		cout << a[i] << " ";
-	}
+    int arr[] = { 2, 3, 4, 10, 40 };
+    int x = 10;
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int result = binarySearch(arr, 0, n - 1, x);
+    (result == -1)
+        ? cout << "Element is not present in array"
+        : cout << "Element is present at index " << result;
+    return 0;
 }
-//testing

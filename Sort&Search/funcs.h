@@ -3,6 +3,9 @@
 using namespace std;
 
 void swap(int& i, int& j);
+//search
+int binarySearch(int* a, int low, int high, int x);
+//sort
 void bubbleSort(int* a, int n);
 void cocktailSort(int* a, int n);
 void selectionSort(int* a, int n);
