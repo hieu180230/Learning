@@ -17,6 +17,7 @@ struct List {
 };
 //for exercises
 int Count(List list);
+bool checkIncrease(List list, Node* pCur);
 //functions
 bool listEmpty(List list);
 int listAppend(List &list, Data input);
