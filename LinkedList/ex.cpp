@@ -69,5 +69,12 @@ void insertList(Node*& pHead, Node*& pAnother)
 {
 	Node* pCur = pHead;
 	Node* pInsert = pAnother;
+	if (pInsert->data.age <= pHead->data.age)
+	{
 
+	}
+	while (pCur->pNext != NULL)
+	{
+		pCur->pNext->data
+	}
 }
