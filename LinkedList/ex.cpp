@@ -31,3 +31,50 @@ bool checkIncrease(List list, Node* pCur)
 	}
 	return checkIncrease(list, pCur->pNext);
 }
+
+Node* findX(Node* pHead, int x)
+{
+	if (pHead == NULL) return NULL;
+	Node* pCur = pHead;
+	while (pCur != NULL)
+	{
+		if (pCur->data.age == x) return pCur;
+	}
+	return NULL;
+}
+
+void removeAllXs(Node*& pHead, int x)
+{
+	if (pHead == NULL) return;
+	Node* pCur = pHead;
+	while (pCur->pNext != NULL)
+	{
+		if (pCur->pNext->data.age == x)
+		{
+			Node* pTemp = pCur->pNext->pNext;
+			delete pCur->pNext;
+			pCur->pNext = pTemp;
+		}
+		else pCur = pCur->pNext;
+	}
+	if (pHead->data.age == x)
+	{
+		Node* pTemp = pHead->pNext;
+		delete pHead;
+		pHead = pTemp;
+	}
+}
+
+void insertList(Node*& pHead, Node*& pAnother)
+{
+	Node* pCur = pHead;
+	Node* pInsert = pAnother;
+	if (pInsert->data.age <= pHead->data.age)
+	{
+
+	}
+	while (pCur->pNext != NULL)
+	{
+		pCur->pNext->data
+	}
+}
