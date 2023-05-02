@@ -37,34 +37,19 @@ void readBin(string filename, Polynomial* &p)
 	int count = 0;
 	while (!file.eof())
 	{
-		pCur = new Polynomial;
 		file.read(reinterpret_cast<char*>(&count), 2);
-		pCur->count = count;
-		//cout << pCur->count << endl;
-		pCur->deg = new float[count];
-		pCur->coef = new float[count];
+		float* degInput = new float[count];
+		float* coefInput = new float[count];
 		for (int i = 0; i < count; i++)
 		{
 			pair <float, float> pair;
 			file.read(reinterpret_cast<char*>(&pair), sizeof(pair));
-			pCur->deg[i] = pair.first;
-			pCur->coef[i] = pair.second;
-			//cout << pCur->deg[i] << " " << pCur->coef[i] << endl;
+			degInput[i] = pair.first;
+			coefInput[i] = pair.second;
 		}
-		pCur->pNext = NULL;
-		pCur = pCur->pNext;
+		append(p, count, degInput, coefInput);
 	}
 	file.close();
-	pCur = p;
-	while (pCur != NULL)
-	{
-		cout << pCur->count << endl;
-		for (int i = 0; i < pCur->count; i++)
-		{
-			cout << pCur->deg[i] << " " << pCur->coef[i] << endl;
-		}
-		pCur = pCur->pNext;
-	}
 }
 
 void outputList(Polynomial* p)
