@@ -4,6 +4,13 @@ using namespace std;
 
 struct Polynomial
 {
-	float deg;
-	float coef;
+	int count = 0;
+	float* deg = NULL;
+	float* coef = NULL;
+	Polynomial* pNext = NULL;
 };
+
+
+
+void readBin(string filename, Polynomial*& p);
+void outputList(Polynomial* p);
