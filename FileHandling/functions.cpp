@@ -2,7 +2,7 @@
 #include <fstream>
 #include "functions.h"
 using namespace std;
-
+//begin
 Polynomial* createNode(int countInput, float* degInput, float* coefInput)
 {
 	Polynomial* newNode = new Polynomial;
@@ -111,3 +111,7 @@ void writeBin(string filename, Polynomial* p)
 	}
 	file.close();
 }
+//end
+
+//begin
+
