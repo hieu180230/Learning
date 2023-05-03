@@ -70,3 +70,45 @@ void outputList(Polynomial* p)
 		pCur = pCur->pNext;
 	}
 }
+
+void writeBin(string filename, Polynomial* p)
+{
+	if (p == NULL)
+	{
+		cout << "NULL" << endl;
+		return;
+	}
+	Polynomial* pCur = p;
+	int maxDegree = 0, maxNode = 0, node = 0;
+	while (pCur != NULL)
+	{
+		int degree = 0;
+		for (int i = 0; i < pCur->count; i++)
+		{
+			degree += pCur->deg[i];
+		}
+		if (degree >= maxDegree)
+		{
+			maxNode = node;
+			maxDegree = degree;
+		}
+		node++;
+	}
+	pCur = p;
+	int index = 0;
+	while (index != maxNode)
+	{
+		pCur = pCur->pNext;
+		index++;
+	}
+	fstream file;
+	file.open(filename, ios::binary | ios::out);
+	file.write(reinterpret_cast<char*>(&pCur->count), 2);
+	pair <float, float> pair;
+	for (int i = 0; i < pCur->count; i++)
+	{
+		pair = make_pair(pCur->deg[i], pCur->coef[i]);
+		file.write(reinterpret_cast<char*>(&pair), sizeof(pair));
+	}
+	file.close();
+}
