@@ -9,7 +9,6 @@ int main()
 	cin >> n;
 	List list;
 	Data data;
-	listOutput(list);
 	while (n > 0)
 	{
 		cout << "Name: "; cin >> data.name;
@@ -18,5 +17,15 @@ int main()
 		n = n - 1;
 	}
 	listOutput(list);
-	cout << endl << listLength(list) << endl << checkIncrease(list, list.pHead);
+	cin >> n;
+	List sublist;
+	while (n > 0)
+	{
+		cout << "Name: "; cin >> data.name;
+		cout << "Age: "; cin >> data.age;
+		listAppend(sublist, data);
+		n = n - 1;
+	}
+	listOutput(sublist);
+	cout << endl << countOccurrence(list, sublist);
 }

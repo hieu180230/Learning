@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 using namespace std;
-
+//begin
 struct Polynomial
 {
 	int count = 0;
@@ -10,8 +10,9 @@ struct Polynomial
 	Polynomial* pNext = NULL;
 };
 
-
-
 void readBin(string filename, Polynomial*& p);
 void outputList(Polynomial* p);
 void writeBin(string filename, Polynomial* p);
+//end
+
+//begin

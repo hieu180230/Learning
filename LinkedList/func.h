@@ -17,6 +17,7 @@ struct List {
 };
 //for exercises
 int Count(List list);
+int countOccurrence(List list, List sublist);
 bool checkIncrease(List list, Node* pCur);
 //functions
 bool listEmpty(List list);

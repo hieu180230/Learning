@@ -75,6 +75,37 @@ void insertList(Node*& pHead, Node*& pAnother)
 	}
 	while (pCur->pNext != NULL)
 	{
-		pCur->pNext->data
+		pCur->pNext->data;
 	}
+}
+
+//new
+
+int countOccurrence(List list, List sublist)
+{
+	if (list.pHead == NULL || sublist.pHead == NULL) return 0;
+	Node* pCur = list.pHead;
+	int count = 0;
+	while (pCur != NULL)
+	{
+		if (pCur->data.age == sublist.pHead->data.age)
+		{
+			bool matchCheck = true;
+			Node* pTemp = pCur;
+			Node* pSubTemp = sublist.pHead;
+			while (pTemp != NULL && pSubTemp != NULL)
+			{
+				if (pTemp->data.age != pSubTemp->data.age)
+				{
+					matchCheck = false;
+					break;
+				}
+				pTemp = pTemp->pNext;
+				pSubTemp = pSubTemp->pNext;
+			}
+			if (matchCheck == true) count++;
+		}
+		pCur = pCur->pNext;
+	}
+	return count;
 }
