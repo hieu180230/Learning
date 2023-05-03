@@ -35,9 +35,8 @@ void readBin(string filename, Polynomial* &p)
 	file.open(filename, ios::binary | ios::in);
 	Polynomial* pCur = p;
 	int count = 0;
-	while (!file.eof())
+	while (file.read(reinterpret_cast<char*>(&count), 2))
 	{
-		file.read(reinterpret_cast<char*>(&count), 2);
 		float* degInput = new float[count];
 		float* coefInput = new float[count];
 		for (int i = 0; i < count; i++)
