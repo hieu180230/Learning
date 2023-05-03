@@ -14,3 +14,4 @@ struct Polynomial
 
 void readBin(string filename, Polynomial*& p);
 void outputList(Polynomial* p);
+void writeBin(string filename, Polynomial* p);
