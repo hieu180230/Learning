@@ -53,6 +53,12 @@ void removeTail(List& list)
 		return;
 	}
 	Node* pCurrent = list.pHead;
+	if (pCurrent->pNext == NULL)
+	{
+		delete list.pHead;
+		list.pHead = NULL;
+		return;
+	}
 	while (pCurrent->pNext->pNext != NULL)
 	{
 		pCurrent = pCurrent->pNext;

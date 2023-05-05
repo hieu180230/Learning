@@ -5,7 +5,7 @@
 using namespace std;
 int main()
 {
-	int n = 0;
+	/*int n = 0;
 	cin >> n;
 	List list;
 	Data data;
@@ -27,5 +27,7 @@ int main()
 		n = n - 1;
 	}
 	listOutput(sublist);
-	cout << endl << countOccurrence(list, sublist);
+	cout << endl << countOccurrence(list, sublist);*/
+	cout << wordPalindromes("On the world the on");
+
 }

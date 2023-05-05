@@ -109,3 +109,92 @@ int countOccurrence(List list, List sublist)
 	}
 	return count;
 }
+
+bool wordPalindromes(string s)
+{
+	List stack;
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (s[i] <= 90 && s[i] >= 65)
+		{
+			s[i] = s[i] + 32;
+		}
+	}
+	int wordCount = 0;
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (s[i] < 97 || s[i] > 122)
+		{
+			wordCount++;
+		}
+	}
+	wordCount++;
+	if (wordCount % 2 == 1)
+	{
+		int lIndex = 0, rIndex = 0, mIndex = wordCount / 2, tranverseIndex = 0;
+		for (int i = 0; i < s.length(); i++)
+		{
+			if (s[i] < 97 || s[i] > 122)
+			{
+				tranverseIndex++;
+			}
+			if (tranverseIndex == mIndex - 1)
+			{
+				lIndex = i;
+			}
+			if (tranverseIndex == mIndex)
+			{
+				rIndex = i + 1;
+			}
+		}
+		string sTemp = "";
+		for (int i = 0; i <= lIndex; i++)
+		{
+			sTemp += s[i];
+		}
+		for (int i = rIndex; i < s.length(); i++)
+		{
+			sTemp += s[i];
+		}
+		s = sTemp;
+	}
+	string word = "";
+	s += " ";
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (s[i] < 97 || s[i] > 122)
+		{
+			if (stack.pHead == NULL)
+			{
+				Data input;
+				input.name = word;
+				input.age = 1;
+				listAppend(stack, input);
+			}
+			else
+			{
+				Data input;
+				input.name = word;
+				input.age = 1;
+				Node* pCur = stack.pHead;
+				while (pCur->pNext != NULL)
+				{
+					pCur = pCur->pNext;
+				}
+				if (pCur->data.name != word)
+				{
+					listAppend(stack, input);
+				}
+				else
+				{
+					removeTail(stack);
+				}
+			}
+			word = "";
+			continue;
+		}
+		word += s[i];
+	}
+	if (stack.pHead == NULL) return true;
+	return false;
+}
