@@ -19,6 +19,7 @@ struct List {
 int Count(List list);
 int countOccurrence(List list, List sublist);
 bool checkIncrease(List list, Node* pCur);
+bool wordPalindromes(string s);
 //functions
 bool listEmpty(List list);
 int listAppend(List &list, Data input);
