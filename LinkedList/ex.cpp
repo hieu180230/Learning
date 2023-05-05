@@ -120,7 +120,16 @@ bool wordPalindromes(string s)
 			s[i] = s[i] + 32;
 		}
 	}
-	int wordCount = 0;
+	string noComaS = ""; // for filting non-space and non-character from s
+	for (int i = 0; i < s.length(); i++)
+	{
+		if ((s[i] >= 97 && s[i] <= 122) || s[i] == 32)
+		{
+			noComaS += s[i];
+		}
+	}
+	s = noComaS;
+	int wordCount = 0; //counting words in s 
 	for (int i = 0; i < s.length(); i++)
 	{
 		if (s[i] < 97 || s[i] > 122)
@@ -129,9 +138,9 @@ bool wordPalindromes(string s)
 		}
 	}
 	wordCount++;
-	if (wordCount % 2 == 1)
+	if (wordCount % 2 == 1) // remove the word at the middle of s if the number of word in s is odd;
 	{
-		int lIndex = 0, rIndex = 0, mIndex = wordCount / 2, tranverseIndex = 0;
+		int lIndex = 0, rIndex = 0, mIndex = wordCount / 2, tranverseIndex = 0; 
 		for (int i = 0; i < s.length(); i++)
 		{
 			if (s[i] < 97 || s[i] > 122)
@@ -164,7 +173,7 @@ bool wordPalindromes(string s)
 	{
 		if (s[i] < 97 || s[i] > 122)
 		{
-			if (stack.pHead == NULL)
+			if (stack.pHead == NULL) // add words to stack
 			{
 				Data input;
 				input.name = word;
@@ -181,11 +190,11 @@ bool wordPalindromes(string s)
 				{
 					pCur = pCur->pNext;
 				}
-				if (pCur->data.name != word)
+				if (pCur->data.name != word) //add words to stack 
 				{
 					listAppend(stack, input);
 				}
-				else
+				else // remove if words match
 				{
 					removeTail(stack);
 				}

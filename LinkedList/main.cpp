@@ -28,6 +28,6 @@ int main()
 	}
 	listOutput(sublist);
 	cout << endl << countOccurrence(list, sublist);*/
-	cout << wordPalindromes("On the world the on");
+	cout << wordPalindromes("On the, world the on");
 
 }
