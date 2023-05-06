@@ -78,20 +78,22 @@ void writeBin(string filename, Polynomial* p)
 		return;
 	}
 	Polynomial* pCur = p;
-	int maxDegree = 0, maxNode = 0, node = 0;
+	int maxNode = 0, node = 0;
+	float maxDegree = 0;
 	while (pCur != NULL)
 	{
-		int degree = 0;
 		for (int i = 0; i < pCur->count; i++)
 		{
-			degree += pCur->deg[i];
-		}
-		if (degree >= maxDegree)
-		{
-			maxNode = node;
-			maxDegree = degree;
+			cout << pCur->deg[i] << " " << maxDegree << endl;
+			if (pCur->deg[i] > maxDegree)
+			{
+				maxDegree = pCur->deg[i];
+				cout << maxDegree << endl << endl;
+				maxNode = node;
+			}
 		}
 		node++;
+		pCur = pCur->pNext;
 	}
 	pCur = p;
 	int index = 0;
