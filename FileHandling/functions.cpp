@@ -77,38 +77,38 @@ void writeBin(string filename, Polynomial* p)
 		return;
 	}
 	Polynomial* pCur = p;
-	int maxNode = 0, node = 0;
 	float maxDegree = 0;
 	while (pCur != NULL)
 	{
 		for (int i = 0; i < pCur->count; i++)
 		{
-			cout << pCur->deg[i] << " " << maxDegree << endl;
 			if (pCur->deg[i] > maxDegree)
 			{
 				maxDegree = pCur->deg[i];
-				cout << maxDegree << endl << endl;
-				maxNode = node;
 			}
 		}
-		node++;
 		pCur = pCur->pNext;
 	}
 	pCur = p;
-	int index = 0;
-	while (index != maxNode)
-	{
-		pCur = pCur->pNext;
-		index++;
-	}
 	fstream file;
 	file.open(filename, ios::binary | ios::out);
-	file.write((char*)(&pCur->count), 2);
-	pair <float, float> pair;
-	for (int i = 0; i < pCur->count; i++)
+	while (pCur != NULL)
 	{
-		file.write((char*)(&pCur->deg[i]), 4);
-		file.write((char*)(&pCur->coef[i]), 4);
+		for (int a = 0; a < pCur->count; a++)
+		{
+			if (pCur->deg[a] == maxDegree)
+			{
+				file.write((char*)(&pCur->count), 2);
+				pair <float, float> pair;
+				for (int i = 0; i < pCur->count; i++)
+				{
+					file.write((char*)(&pCur->deg[i]), 4);
+					file.write((char*)(&pCur->coef[i]), 4);
+				}
+				break;
+			}
+		}
+		pCur = pCur->pNext;
 	}
 	file.close();
 }
