@@ -35,16 +35,15 @@ void readBin(string filename, Polynomial* &p)
 	file.open(filename, ios::binary | ios::in);
 	Polynomial* pCur = p;
 	int count = 0;
-	while (file.read(reinterpret_cast<char*>(&count), 2))
+	while (file.read((char*)(&count), 2))
 	{
 		float* degInput = new float[count];
 		float* coefInput = new float[count];
 		for (int i = 0; i < count; i++)
 		{
 			pair <float, float> pair;
-			file.read(reinterpret_cast<char*>(&pair), sizeof(pair));
-			degInput[i] = pair.first;
-			coefInput[i] = pair.second;
+			file.read((char*)(&degInput[i]), 4);
+			file.read((char*)(&coefInput[i]), 4);
 		}
 		append(p, count, degInput, coefInput);
 	}
@@ -104,12 +103,12 @@ void writeBin(string filename, Polynomial* p)
 	}
 	fstream file;
 	file.open(filename, ios::binary | ios::out);
-	file.write(reinterpret_cast<char*>(&pCur->count), 2);
+	file.write((char*)(&pCur->count), 2);
 	pair <float, float> pair;
 	for (int i = 0; i < pCur->count; i++)
 	{
-		pair = make_pair(pCur->deg[i], pCur->coef[i]);
-		file.write(reinterpret_cast<char*>(&pair), sizeof(pair));
+		file.write((char*)(&pCur->deg[i]), 4);
+		file.write((char*)(&pCur->coef[i]), 4);
 	}
 	file.close();
 }
