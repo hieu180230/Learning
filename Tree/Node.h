@@ -38,5 +38,8 @@ Node* newNode(int data)
 
 void insert(Node*& root, int input)
 {
-
+	if (!root) root = newNode(input);
+	else if (input < root->data) insert(root->left, input);
+	else if (input > root->data) insert(root->right, input);
+	else return;
 }
